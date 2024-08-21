@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Photo</title>
+    <link rel="stylesheet" href="/css/show-books.css">
+</head>
+<body>
+<h1>Edit Photo for Book</h1>
+
+<!-- Display current photo if available -->
+<div class="img">
+    <h2>Current Photo</h2>
+    <div th:if="${photo_url != null}">
+        <img th:src="@{${photo_url.getPhotoUrl()}}" alt="Current Book Photo" style="max-width: 300px; max-height: 300px;">
+    </div>
+    <div th:if="${photo_url == null}">
+        <p>No Photo Available</p>
+    </div>
+</div>
+
+<!-- Form to update photo URL -->
+<form th:action="@{/books/{id}/update-photo(id=${book.id})}" method="post">
+    <label for="photoUrl">New Photo URL:</label>
+    <input type="text" id="photoUrl" name="photoUrl" th:value="${photo_url != null ? photo_url.getPhotoUrl() : ''}" required>
+    <button type="submit">Update Photo</button>
+</form>
+
+<form th:action="@{/books/{id}/remove-photo(id=${book.id})}" method="post" style="display: inline;">
+    <button type="submit" class="btn btn-danger">Remove Photo</button>
+    <br>
+    <a th:href="@{/books/{id}(id=${book.id})}" class="btn">Back to Book Details</a>
+</form>
+
+</body>
+</html>

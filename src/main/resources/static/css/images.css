@@ -1,0 +1,100 @@
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; /* Увеличенный размер текста */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Headings styling */
+h1, h2 {
+    font-family: 'Lora', serif;
+}
+
+/* Background image for the center section */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 100%;
+    background: url('/images/center-background-books.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    border: 10px solid #6b4423;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px; /* Slightly rounded corners */
+    background: rgba(255, 248, 240, 0.95);
+    color: #000000; /* White text for better contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header styling */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #000000; /* White color to match the library theme */
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000000; /* Slightly lighter text for better readability */
+}
+
+/* Input field styling */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #444; /* Darker border for better visibility */
+    background: #333; /* Dark background to match theme */
+    color: #fff; /* White text */
+}
+
+/* Button styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}

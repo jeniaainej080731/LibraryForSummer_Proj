@@ -1,0 +1,220 @@
+/* General body styles */
+body {
+    font-family: 'Lora', serif; /* Использование элегантного шрифта */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #000;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Background image for the center section */
+body::before {
+    content: "";
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    background: url('/images/center-background2.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    border: 10px solid #6b4423;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: rgba(255, 248, 240, 0.95);
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Label styling */
+.label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Header styling */
+h1 {
+    margin-top: 0;
+    font-family: 'Lora', serif;
+    font-size: 2.5em;
+    color: #000;
+}
+
+/* Form styling */
+form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Input and select styling */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #6c757d;
+    background-color: #343a40;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translate3d(2px, -3px, 2px);
+}
+
+.btn-danger {
+    background-color: #b22222;
+}
+
+.btn-danger:hover {
+    background-color: #a52a2a;
+}
+
+.btn-warning {
+    background-color: #ff8c00;
+}
+
+.btn-warning:hover {
+    background-color: #ffa500;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Table styling */
+.person-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.person-table th, .person-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.person-table th {
+    background-color: #f4f4f4;
+}
+
+.person-table td {
+    background-color: #fff;
+}
+
+.person-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* List styling */
+.book-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.book-list li {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-list li:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translate3d(16px, 0px, 5px);
+}
+
+.book-list li .btn {
+    margin-left: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* ChoiceBox styling */
+select {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: #343a40;
+    color: #fff;
+    border: 1px solid #6c757d;
+    margin: 10px 0;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Specific styling for the top and bottom buttons */
+.top-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

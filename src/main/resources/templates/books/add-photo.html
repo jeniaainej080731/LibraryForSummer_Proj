@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Photo</title>
+    <link rel="stylesheet" href="/css/images.css">
+</head>
+<body>
+<div class="container">
+    <h2>Add Photo for [[${book.title}]]</h2>
+    <form th:action="@{/books/{id}/add-photo(id=${book.id})}" method="post">
+        <label for="photoUrl">Photo URL:</label>
+        <input type="text" id="photoUrl" name="photoUrl" required placeholder="Insert your link's address">
+        <button type="submit">Add Photo</button>
+    </form>
+</div>
+</body>
+</html>

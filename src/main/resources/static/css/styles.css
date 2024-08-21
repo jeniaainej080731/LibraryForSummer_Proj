@@ -1,0 +1,138 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Container styling */
+.container {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+/* Header styling */
+h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+    color: #fff; /* White color for better readability */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Button styling */
+.buttons, .btn {
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* List styling */
+.book-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.book-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a border between items */
+    margin-bottom: 10px; /* Add space between items */
+}
+
+.book-list li a {
+    color: #007bff; /* Set a color for book links */
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.book-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}

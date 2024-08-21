@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+    <form action="/home/register" method="post" th:object="${user}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="*{name}" required>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:value="*{email}" required>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:value="*{password}" required>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <br><br>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? <a href="/home/login" class="btn">Log In</a></p>
+    <p th:if="${error}" class="error" th:text="${error}"></p>
+</div>
+<div class="footer">
+    <p>Created by </p>
+    <p>Email: your.email@example.com | Phone: (123) 456-7890 | @jeniaainej080731</p>
+    <p>&copy; 2024 JeniaaineJ</p>
+</div>
+</body>
+</html>

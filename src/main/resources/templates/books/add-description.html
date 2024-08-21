@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Description</title>
+    <link rel="stylesheet" href="/css/show-books.css">
+</head>
+<body>
+<div class="container">
+    <h1>Add Description for <span th:text="${book.title}"></span></h1>
+    <form th:action="@{/books/{id}/add-description(id=${book.id})}" method="post">
+        <div>
+            <label for="descriptionText">Description:</label>
+            <textarea id="descriptionText" name="descriptionText" rows="5" cols="50" placeholder="Enter description" required></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn">Add Description</button>
+            <a th:href="@{/books/{id}(id=${book.id})}" class="btn">Back to Book Details</a>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

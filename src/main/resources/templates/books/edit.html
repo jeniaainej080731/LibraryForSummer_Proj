@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Book</h1>
+    <form th:action="@{/books/{id}(id=${book.id})}" th:object="${book}" method="post">
+        <input type="hidden" name="_method" value="patch"/>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" th:field="*{title}" placeholder="Title"/>
+        <br/>
+        <label for="author">Author:</label>
+        <input type="text" id="author" th:field="*{author}" placeholder="Author"/>
+        <br/>
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" th:field="*{publisher}" placeholder="Publisher"/>
+        <br/>
+        <label for="creationYear">Creation Year:</label>
+        <input type="number" id="creationYear" th:field="*{creationYear}" placeholder="Creation Year"/>
+        <br/>
+        <button type="submit" class="btn">Update</button>
+        <br>
+        <a href="/books" class="btn">Back to List</a>
+    </form>
+</div>
+</body>
+</html>

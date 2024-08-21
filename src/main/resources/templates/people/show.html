@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Person Details</title>
+    <link rel="stylesheet" href="/css/person.css">
+</head>
+<body>
+<div class="container">
+    <h1>Person Details</h1>
+<!--    <p>ID: <span th:text="${person.id}">1</span></p>-->
+    <p class="label">Name: <span th:text="${person.name}">John Doe</span></p>
+    <p class="label">Email: <span th:text="${person.email}">john.doe@example.com</span></p>
+    <hr/>
+    <h2>Assigned Books</h2>
+    <ul class="book-list">
+        <li th:if="${#lists.isEmpty(assignedBooks)}">No books assigned.</li>
+        <li th:each="book : ${assignedBooks}">
+            <span th:text="${book.title}">Book Title</span>
+            <form th:action="@{/people/{id}/return(id=${person.id})}" method="post" style="display:inline;">
+                <input type="hidden" name="bookId" th:value="${book.id}">
+                <button type="submit" class="btn btn-warning">Return</button>
+            </form>
+        </li>
+    </ul>
+    <h2>Available Books</h2>
+    <ul class="book-list">
+        <li th:if="${#lists.isEmpty(availableBooks)}">No available books.</li>
+        <li th:each="book : ${availableBooks}">
+            <span th:text="${book.title}">Book Title</span>
+            <form th:action="@{/people/{id}/assignBook(id=${person.id})}" method="post" style="display:inline;">
+                <input type="hidden" name="bookId" th:value="${book.id}">
+                <button type="submit" class="btn btn-success">Assign</button>
+            </form>
+        </li>
+    </ul>
+    <div class="buttons">
+        <a th:href="@{/people}" class="btn">Back to List</a>
+        <a th:href="@{/people/{id}/edit(id=${person.id})}" class="btn">Edit</a>
+    </div>
+</div>
+</body>
+</html>

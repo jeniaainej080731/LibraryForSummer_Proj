@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="/css/show-books.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="left-column">
+            <h1>Book Details</h1>
+            <!-- <p>ID: <span th:text="${book.id}"></span></p> -->
+            <p>Title: <span th:text="${book.title}"></span></p>
+            <p>Author: <span th:text="${book.author}"></span></p>
+            <p>Publisher: <span th:text="${book.publisher}"></span></p>
+            <p>Creation Year: <span th:text="${book.creationYear}"></span></p>
+
+            <h2>Genres</h2>
+            <div th:if="${#lists.isEmpty(book.genres)}">No genres assigned</div>
+            <ul>
+                <li th:each="genre : ${book.genres}">
+                    <span th:text="${genre.genre}"></span>
+                    <form th:action="@{/books/{id}/remove-genre(id=${book.id})}" method="post" style="display:inline;">
+                        <input type="hidden" name="genreId" th:value="${genre.genreId}"/>
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </li>
+            </ul>
+
+            <h2>Type</h2>
+            <p th:if="${book.type != null}" th:text="${book.type.type}"></p>
+            <p th:if="${book.type == null}">No type assigned</p>
+            <form th:action="@{/books/{id}/clear-type(id=${book.id})}" method="post" style="display:inline;">
+                <div th:if="${book.type != null}">
+                    <button type="submit" class="btn btn-warning">Clear Type</button>
+                </div>
+            </form>
+
+            <!-- Description Section -->
+            <div class="description">
+                <h2>Description</h2>
+
+                <p th:text="${book.description != null ? book.description.description : 'No description available'}"></p>
+
+                <div th:if="${book.description == null}">
+                    <a th:href="@{/books/{id}/add-description(id=${book.id})}" class="btn">Add Description</a>
+                </div>
+
+                <div th:if="${book.description != null}">
+                    <a th:href="@{/books/{id}/edit-description(id=${book.id})}" class="btn">Edit Description</a>
+                </div>
+            </div>
+
+            <!-- Assignments Section -->
+            <div class="assignments">
+                <h2>Assign Genre</h2>
+                <form th:action="@{/books/{id}/assign-genre(id=${book.id})}" method="post" class="assign-form">
+                    <label for="genre">Select Genre:</label>
+                    <select id="genre" name="genreId">
+                        <option value="" disabled selected>Select a genre</option>
+                        <option th:each="genre : ${genres}" th:value="${genre.genreId}" th:text="${genre.genre}"></option>
+                    </select>
+                    <button type="submit" class="btn">Assign Genre</button>
+                </form>
+
+                <h2>Assign Type</h2>
+                <form th:action="@{/books/{id}/assign-type(id=${book.id})}" method="post" class="assign-form">
+                    <label for="type">Select Type:</label>
+                    <select id="type" name="typeId">
+                        <option value="" disabled selected>Select a type</option>
+                        <option th:each="type : ${types}" th:value="${type.typeId}" th:text="${type.type}"></option>
+                    </select>
+                    <button type="submit" class="btn">Assign Type</button>
+                </form>
+
+                <!-- Assign Book Section -->
+                <h2>Assign Book</h2>
+                <form th:action="@{/books/{id}/assign(id=${book.id})}" method="post" class="assign-form">
+                    <label for="personId">Select Person:</label>
+                    <select id="personId" name="personId" required>
+                        <option value="" disabled selected>Select a person</option>
+                        <option th:each="person : ${availablePeople}" th:value="${person.id}" th:text="${person.name}"></option>
+                    </select>
+                    <button type="submit" class="btn">Assign</button>
+                </form>
+
+                <!-- People who already have the book -->
+                <div class="people-with-book">
+                    <h2>People with This Book</h2>
+                    <ul>
+                        <li th:if="${#lists.isEmpty(assignedPeople)}">No one currently has this book.</li>
+                        <li th:each="person : ${assignedPeople}">
+                            <span th:text="${person.name}"></span>
+                            <form th:action="@{/books/{id}/return(id=${book.id})}" method="post" style="display:inline;">
+                                <input type="hidden" name="personId" th:value="${person.id}"/>
+                                <button type="submit" class="btn btn-warning">Return</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <a th:href="@{/books/{id}/edit(id=${book.id})}" class="btn">Edit</a>
+                <form th:action="@{/books/{id}(id=${book.id})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <a href="/books" class="btn">Back to List</a>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h2>Photo</h2>
+            <div class="img">
+                <div th:if="${book.photo_url != null and book.photo_url.getPhotoUrl() != null}">
+                    <img th:src="@{${book.photo_url.getPhotoUrl()}}" alt="Book Image">
+                </div>
+
+                <div th:if="${book.photo_url == null or book.photo_url.getPhotoUrl() == null}">
+                    <p>No Photo Available</p>
+                </div>
+            </div>
+
+            <div th:if="${book.photo_url == null or book.photo_url.getPhotoUrl() == null}">
+                <a th:href="@{/books/{id}/add-photo(id=${book.id})}" class="btn">Add Photo</a>
+            </div>
+
+            <div th:if="${book.photo_url != null and book.photo_url.getPhotoUrl() != null}">
+                <a th:href="@{/books/{id}/edit-photo(id=${book.id})}" class="btn">Edit Photo</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

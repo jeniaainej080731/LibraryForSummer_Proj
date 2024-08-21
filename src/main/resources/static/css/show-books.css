@@ -1,0 +1,231 @@
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; /* Увеличенный размер текста */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Headings styling */
+h1, h2 {
+    font-family: 'Lora', serif;
+}
+
+/* Background image for the center section */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 100%;
+    background: url('/images/center-background-books.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+    border: 10px solid #6b4423;
+    box-sizing: border-box;
+    opacity: 0.9;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: rgba(255, 248, 240, 0.95);
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 900px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Centered content */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* To ensure better responsiveness */
+}
+
+/* Left and Right column styling */
+.left-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.right-column {
+    flex: 0.5;
+    text-align: center;
+}
+
+.img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #6b4423;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Description section */
+.description {
+    margin-top: 20px;
+    background: transparent;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #000000;
+}
+
+.description .h2 {
+    font-family: 'Lora', serif;
+}
+
+/* Button styling */
+.btn {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #a0522d;
+    transform: translateY(-3px);
+}
+
+.btn-danger {
+    background-color: #b22222;
+}
+
+.btn-danger:hover {
+    background-color: #a52a2a;
+}
+
+.btn-warning {
+    background-color: #ff8c00;
+}
+
+.btn-warning:hover {
+    background-color: #ffa500;
+}
+
+/* Assignments section */
+.assignments {
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.assignments .h2 {
+    font-family: 'Lora', serif;
+}
+
+/* Align the actions section */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #a0522d;
+    transform: translateY(-3px);
+}
+
+/* General styling for select elements */
+select {
+    background-color: #333; /* Темный фон для контраста */
+    color: #fff; /* Белый текст */
+    padding: 5px 8px; /* Уменьшенный внутренний отступ */
+    border: 1px solid #555; /* Окантовка */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 14px; /* Уменьшенный размер текста */
+    font-family: 'Open Sans', sans-serif; /* Основной шрифт */
+    appearance: none; /* Отключение стилизации браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align-last: center; /* Выравнивание текста */
+    cursor: pointer; /* Указатель мыши */
+    transition: background-color 0.3s ease; /* Плавная смена цвета фона */
+    width: 150px; /* Уменьшенная ширина поля */
+}
+
+/* Hover effect for select elements */
+select:hover {
+    background-color: #444; /* Более светлый фон при наведении */
+}
+
+/* Style for the dropdown arrow */
+select::after {
+    content: '▼'; /* Добавление стрелки вниз */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Отключение взаимодействия с мышью */
+}
+
+/* Style for the option elements */
+option {
+    background-color: #333; /* Темный фон */
+    color: #fff; /* Белый текст */
+    padding: 10px; /* Внутренний отступ */
+    font-size: 14px; /* Уменьшенный размер текста */
+}
+
+/* Disabled option styling */
+option:disabled {
+    color: #aaa; /* Серый цвет для неактивных опций */
+}
+

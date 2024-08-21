@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Secondary Params</title>
+    <link rel="stylesheet" href="/css/show-books.css">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Description</h1>
+    <!-- Form to update the description -->
+    <form th:action="@{/books/{id}/update-description(id=${book.id})}" method="post">
+        <label for="descriptionText">Description:</label>
+        <textarea id="descriptionText" name="descriptionText" rows="6" required th:text="${description.description}"></textarea>
+        <button type="submit">Update Description</button>
+    </form>
+
+    <!-- Form to remove the description -->
+    <form th:action="@{/books/{id}/remove-description(id=${book.id})}" method="post" style="display: inline;">
+        <button type="submit" class="btn btn-danger">Remove Description</button>
+        <br>
+        <a th:href="@{/books/{id}(id=${book.id})}" class="btn">Back to Book Details</a>
+    </form>
+
+</div>
+</body>
+</html>

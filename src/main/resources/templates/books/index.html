@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books List</title>
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+<div class="container">
+    <h1>Books List</h1>
+    <a href="/books/new" class="btn">Add New Book</a>
+
+    <form method="get" action="/books" class="filter-form">
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+            <option value=""></option>
+            <option th:each="genre : ${genres}" th:value="${genre.genreId}" th:text="${genre.genre}"></option>
+        </select>
+
+        <label for="type">Type:</label>
+        <select id="type" name="type">
+            <option value=""></option>
+            <option th:each="type : ${types}" th:value="${type.typeId}" th:text="${type.type}"></option>
+        </select>
+
+        <button type="submit" class="btn">Filter</button>
+    </form>
+
+    <ul class="book-list">
+        <li th:each="book : ${books}">
+            <a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}"></a>
+        </li>
+    </ul>
+
+    <div class="buttons">
+        <a href="/people" class="btn">Go to People</a>
+        <a href="/home" class="btn">Go to Main Page</a>
+    </div>
+</div>
+</body>
+</html>

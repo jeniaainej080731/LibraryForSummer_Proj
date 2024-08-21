@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>People List</title>
+    <link rel="stylesheet" href="/css/person.css">
+</head>
+<body>
+<div class="container">
+    <h1>List of People</h1>
+    <div class="top-buttons">
+        <a href="/people/new" class="btn">Add New Person</a>
+    </div>
+    <br>
+    <table class="person-table">
+        <thead>
+        <tr>
+<!--            <th>ID</th>-->
+            <th class="td">Name</th>
+            <th class="td">Email</th>
+            <th class="td">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${people}">
+<!--            <td th:text="${person.id}">1</td>-->
+            <td th:text="${person.name}" class="lbl2">John Doe</td>
+            <td th:text="${person.email}" class="lbl2">john.doe@example.com</td>
+            <td>
+                <a th:href="@{/people/{id}(id=${person.id})}" class="btn">View</a>
+                <form th:action="@{/people/{id}(id=${person.id})}" method="post" style="display:inline">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="bottom-buttons">
+        <a href="/books" class="btn">Go to Books</a>
+        <a href="/home" class="btn">Go to Main Page</a>
+    </div>
+</div>
+</body>
+</html>
