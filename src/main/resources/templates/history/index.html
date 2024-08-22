@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History Records</title>
     <link rel="stylesheet" href="/css/history.css">
+    <script src="/js/history.js"></script>
 </head>
 <body>
 <div class="container">
     <h1>History of Records</h1>
+
     <table class="history-table">
         <thead>
         <tr>
             <th>ID</th>
             <th>Person</th>
             <th>Book</th>
-            <th>Assign Date</th>
-            <th>Release Date</th>
+            <th class="sortable" datatype="date" data-column="assignDate">Assign Date</th>
+            <th class="sortable" datatype="date data-column=releaseDate">Release Date</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@
     <div class="button-container">
         <a href="/home" class="btn btn-return">Go to Main Page</a>
     </div>
+
 </div>
 </body>
 </html>

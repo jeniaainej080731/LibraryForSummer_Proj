@@ -113,3 +113,17 @@ h1 {
     background-color: #5a6268;
     transform: translateY(-2px);
 }
+
+th.sortable {
+    cursor: pointer;
+}
+th.sortable::after {
+    content: " \25B2";
+    font-size: 0.8em;
+}
+th.sortable.sorted-asc::after {
+    content: " \25B2";
+}
+th.sortable.sorted-desc::after {
+    content: " \25BC";
+}

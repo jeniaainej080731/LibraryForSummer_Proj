@@ -1,13 +1,14 @@
 package com.example.LibraryForSummer.repositories.forChilds;
 
 import com.example.LibraryForSummer.models.Childs.History;
+import com.example.LibraryForSummer.models.Parent_Child.Book;
 import com.example.LibraryForSummer.models.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public interface HistoryRepository extends JpaRepository<History, Integer> {
     List<History> findByPersonId(int personId);
