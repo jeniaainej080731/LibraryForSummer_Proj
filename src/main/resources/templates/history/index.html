@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Records</title>
+    <link rel="stylesheet" href="/css/history.css">
+</head>
+<body>
+<div class="container">
+    <h1>History of Records</h1>
+    <table class="history-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Person</th>
+            <th>Book</th>
+            <th>Assign Date</th>
+            <th>Release Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="history : ${histories}">
+            <td th:text="${history.id}"></td>
+            <td th:text="${history.person.name}"></td>
+            <td th:text="${history.book.title}"></td>
+            <td th:text="${history.assignDate}"></td>
+            <td th:text="${history.releaseDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <a href="/home" class="btn btn-return">Go to Main Page</a>
+    </div>
+</div>
+</body>
+</html>

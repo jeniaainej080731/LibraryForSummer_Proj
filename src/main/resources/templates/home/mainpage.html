@@ -6,6 +6,10 @@
     <script src="/js/scripts.js" defer></script>
 </head>
 <body>
+
+<!-- Log Out button -->
+<a class="btn logout-btn" th:href="@{/home/logout}" th:if="${isLoggedIn}">Log Out</a>
+
 <div class="container">
     <h1>Welcome to the Library!</h1>
 
@@ -19,12 +23,15 @@
     <div class="buttons" th:if="${isLoggedIn}">
         <a class="btn" th:href="@{/people}">Readers</a>
         <a class="btn" th:href="@{/books}">Books</a>
+        <br>
+        <a class="btn" th:href="@{/history}">History</a>
     </div>
+
 </div>
 
 <div class="footer">
     <p>Created by </p>
-    <p>Email: your.email@example.com | Phone: (123) 456-7890 | @jeniaainej080731</p>
+    <p>Email: jeniaainej080731@gmail.com | Phone: (123) 456-7890 | @jeniaainej080731</p>
     <p>&copy; 2024 JeniaaineJ</p>
 </div>
 </body>

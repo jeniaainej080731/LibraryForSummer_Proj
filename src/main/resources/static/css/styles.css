@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative; /* Ensure the Log Out button is positioned relative to the body */
 }
 
 /* Container styling */
@@ -22,6 +23,7 @@ body {
     max-width: 600px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+    position: relative; /* Ensure the Log Out button is positioned relative to this container */
 }
 
 /* Header styling */
@@ -135,4 +137,24 @@ table th {
     .container {
         width: 90%;
     }
+}
+
+/* Positioning the Log Out button in the top right corner */
+.logout-btn {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    padding: 10px 20px;
+    background-color: #d9534f; /* Red color for Log Out */
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Ensure the button is above other elements */
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+    transform: translateY(-3px);
 }

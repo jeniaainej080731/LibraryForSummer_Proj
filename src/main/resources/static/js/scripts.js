@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Determine if the user is logged in
     const isLoggedIn = document.body.getAttribute('data-is-logged-in') === 'true';
+    const logoutBtn = document.querySelector('.logoutBtn');
 
     // Show/hide buttons based on login state
     const authButtons = document.querySelector('.buttons.auth');
@@ -22,5 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mainButtons) {
         mainButtons.style.display = isLoggedIn ? 'block' : 'none';
+    }
+
+    if (logoutBtn) {
+        logoutBtn.style.display = isLoggedIn ? 'block' : 'none';
     }
 });
