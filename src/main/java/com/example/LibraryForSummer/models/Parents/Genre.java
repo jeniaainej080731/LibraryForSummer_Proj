@@ -26,6 +26,9 @@ public class Genre implements Serializable {
         this.genre = genre;
     }
 
+    public Genre(String genre, Object o) {
+    }
+
     public int getGenreId() {
         return genreId;
     }

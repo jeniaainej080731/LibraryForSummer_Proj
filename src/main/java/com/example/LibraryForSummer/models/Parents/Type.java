@@ -27,6 +27,9 @@ public class Type implements Serializable {
         this.type = type;
     }
 
+    public Type(String type, Object o) {
+    }
+
     public int getTypeId() {
         return typeId;
     }
