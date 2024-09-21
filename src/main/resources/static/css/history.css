@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    font-size: 1rem; /* base font size */
 }
 
 /* Background image for the center section */
@@ -31,11 +32,11 @@ body::before {
 
 /* Container styling */
 .container {
-    padding: 25px;
+    padding: 2rem;
     background: rgba(255, 248, 240, 0.95);
     border-radius: 12px;
-    margin: 20px auto;
-    max-width: 900px;
+    margin: 1.25rem auto;
+    max-width: 90vw; /* instead of fixed width */
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1s ease-in-out;
@@ -50,7 +51,7 @@ body::before {
 /* Header styling */
 h1 {
     margin-top: 0;
-    font-size: 2.5em;
+    font-size: 2.5rem; /* responsive font size */
     color: #000000;
 }
 
@@ -58,13 +59,13 @@ h1 {
 .history-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 1.1em;
+    margin-top: 1.25rem;
+    font-size: 1.1rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .history-table th, .history-table td {
-    padding: 12px;
+    padding: 0.75rem;
     border: 1px solid #ddd;
     background-color: #fff;
 }
@@ -85,23 +86,28 @@ h1 {
 /* Responsive design */
 @media (max-width: 600px) {
     .container {
-        width: 90%;
+        width: 90vw;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 
     .history-table {
-        font-size: 1em;
+        font-size: 1rem;
     }
 }
 
 .button-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .btn-return {
     display: inline-block;
-    padding: 12px 25px;
-    font-size: 1.2em;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #fff;
     background-color: #6c757d;
@@ -119,7 +125,7 @@ th.sortable {
 }
 th.sortable::after {
     content: " \25B2";
-    font-size: 0.8em;
+    font-size: 0.8rem;
 }
 th.sortable.sorted-asc::after {
     content: " \25B2";
